@@ -145,6 +145,17 @@ config DRM_KMS_CMA_HELPER
 	help
 	  Choose this if you need the KMS CMA helper functions
 
+config DRM_DEVELOP
+	bool "enable DRM development"
+	default n
+	depends on DRM
+	select DRM_KMS_HELPER
+	select DRM_KMS_CMA_HELPER
+	select DRM_GEM_CMA_HELPER
+	select VIDEOMODE_HELPERS
+	help
+	  Choose this option if you want to develop out-of-tree DRM drivers.
+
 config DRM_VM
 	bool
 	depends on DRM && MMU
